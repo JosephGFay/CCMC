@@ -1,51 +1,27 @@
-local bridge = peripheral.wrap("top")
-local itemlist = bridge.listItems()
-local monitor = peripheral.find('monitor')
 
-local file = fs.open('favorites.txt', 'r')
-local favorites = {}
 
-if file then
-    while true do
-        local line = file.readLine()
-        if not line then break end
-        favorites[#favorites+1] = line
+
+local menu_options = {
+    'Map',
+    'Inventory',
+}
+
+local function draw_menu()
+    term.clear()
+    term.setCursorPos(1, 1)
+    print('Menu')
+    print('----')
+    for i, option in ipairs(menu_options) do
+        print(i .. '. ' .. option)
     end
 end
-file.close()
 
-monitor.clear()
-monitor.setCursorPos(1,1)
-monitor.setTextScale(0.5)
-
-local itemTable = {}
-
-function checkFavorites(val)
-    for _, v in ipairs(favorites) do
-        if v == val then
-            return true
+function main()
+    draw_menu()
+    while true do
+        local event, key = os.pullEvent('key')
+        if key == keys.q then
+            break
         end
     end
-end
-
-for _, item in pairs(itemlist) do
-    local itemEntry = {
-        NAME = item.displayName,
-        AMOUNT = item.amount
-    }
-    table.insert(itemTable, itemEntry)
-end
-
-table.sort(itemTable, function(a, b) return a.NAME < b.NAME end)
-
-for _, item in pairs(itemTable) do
-    if checkFavorites(item.NAME) then
-        monitor.write(item.NAME .. " x" .. item.AMOUNT)
-        monitor.setCursorPos(1, _)
-    else
-        monitor.write(item.NAME .. " x" .. item.AMOUNT)
-        monitor.setCursorPos(1, _)
-    end
-
-
 end
