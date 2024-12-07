@@ -15,21 +15,20 @@ local function draw_menu()
     term.clear()
     term.setCursorPos(1, 1)
     print([[
-  ____          _       _____         _____        __ 
- |  _ \   /\   | |     / ____|  /\   / ____|      /_ |
- | |_) | /  \  | |    | (___   /  \ | |      __   _| |
- |  _ < / /\ \ | |     \___ \ / /\ \| |      \ \ / / |
- | |_) / ____ \| |____ ____) / ____ \ |____   \ V /| |
- |____/_/    \_\______|_____/_/    \_\_____|   \_(_)_|
-                                                                                               
+  ___   _   _    ___   _   ___        _ 
+ | _ ) /_\ | |  / __| /_\ / __| __ __/ |
+ | _ \/ _ \| |__\__ \/ _ \ (__  \ V /| |
+ |___/_/ \_\____|___/_/ \_\___|  \_(_)_|
+                                                                                       
     ]])
     print(' ')
     print('Menu')
     print('----')
     for i, option in ipairs(menu_options) do
-        print(i .. '. ' .. option)
+        print(option)
     end
     print(' ')
+    print('Press Q to exit..')
 end
 
 
@@ -58,7 +57,7 @@ function main()
         end
 
         -- Menu Options
-        if key == key.tab then
+        if key == keys.tab then
             draw_menu()
         end
 
