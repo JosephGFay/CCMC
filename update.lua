@@ -27,8 +27,8 @@ local function download_files()
     end
 end
 local function main()
-    download_files()
     delete_old_files()
+    download_files()
 end
     
 main()

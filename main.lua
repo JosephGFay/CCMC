@@ -20,10 +20,17 @@ end
 
 local function draw_map()
     print('----- Riverside Map -----')
+
+
+
+    print('Press Tab to return to the menu..')
 end
 
 local function draw_inventory()
     print('----- Inventory -----')
+
+
+    print('Press Tab to return to the menu..')
 end
 
 function main()
@@ -34,10 +41,13 @@ function main()
             break
         end
 
-        
-        if key == keys[0] then
+        if key == key.tab then
+            draw_menu()
+        end
+
+        if key == keys.m then
             draw_map()
-        else if key == keys[1] then
+        else if key == keys.i then
             draw_inventory()
         end
         end
