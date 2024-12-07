@@ -59,7 +59,6 @@ local function draw_train_parts()
         term.setCursorPos(1, 1)
         local event, key = os.pullEvent('key')
         if key == keys.tab then
-            draw_menu()
             break
         end
 
@@ -77,17 +76,18 @@ local function draw_train_parts()
 end
 
 local function draw_sites()
-    print('----- Sites -----')
-    for i, site in ipairs(site_list) do
-        print(site)
-    end
-
-    print('Press Tab to return to the menu..')
+    
 
     while true do
+        print('----- Sites -----')
+        for i, site in ipairs(site_list) do
+            print(site)
+        end
+
+        print('Press Tab to return to the menu..')
+
         local event, key = os.pullEvent('key')
         if key == keys.tab then
-            draw_menu()
             break
         end
 
@@ -101,8 +101,9 @@ end
 
 
 function main()
-    draw_menu()
+   
     while true do
+        draw_menu()
         local event, key = os.pullEvent('key')
         if key == keys.q then
             break
