@@ -54,25 +54,22 @@ end
 local function draw_train_parts()
     
     local modem = peripheral.find('modem')
-
-
     modem.open(1)
     local event, side, channel, replyChannel, message, distance
+    
     while true do
-        term.clear()
         term.setCursorPos(1, 1)
+
+        event, side, channel, replyChannel, message, distance = os.pullEvent('modem_message')
+
+        print('----- Train Parts -----')
+        print(tostring(message))
+        print('Press Tab to return to the menu..')
+
         local event, key = os.pullEvent('key')
         if key == keys.tab then
             break
         end
-
-        event, side, channel, replyChannel, message, distance = os.pullEvent('modem_message')
-
-        term.write('----- Train Parts -----')
-        term.setCursorPos(1,2)
-        term.write(tostring(message))
-        term.setCursorPos(1,3)
-        term.write('Press Tab to return to the menu..')
     end
 
  
