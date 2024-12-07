@@ -11,3 +11,4 @@ for _, url in pairs(urls) do
         print('Update Successful')
     end
 end
+
