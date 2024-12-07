@@ -1,5 +1,13 @@
-
-
+term.setTextColor(colors.lime)
+local monitor = peripheral.find('monitor')
+monitor.setTextScale(1)
+monitor.write([[
+  ___   _   _    ___   _   ___        _ 
+ | _ ) /_\ | |  / __| /_\ / __| __ __/ |
+ | _ \/ _ \| |__\__ \/ _ \ (__  \ V /| |
+ |___/_/ \_\____|___/_/ \_\___|  \_(_)_|
+                                                                                       
+    ]])
 
 local menu_options = {
     '[0] - Map',
@@ -39,6 +47,10 @@ local function draw_map()
     
     
         print('Press Tab to return to the menu..')
+        local event, key = os.pullEvent('key')
+        if key == keys.tab then
+            break
+        end
     end
 end
 
@@ -48,6 +60,10 @@ local function draw_inventory()
     
     
         print('Press Tab to return to the menu..')
+        local event, key = os.pullEvent('key')
+        if key == keys.tab then
+            break
+        end
     end
 end
 
@@ -56,7 +72,8 @@ local function draw_train_parts()
     local modem = peripheral.find('modem')
     modem.open(1)
     local event, side, channel, replyChannel, message, distance
-    
+
+    term.clear()
     while true do
         term.setCursorPos(1, 1)
 
@@ -77,6 +94,7 @@ end
 
 local function draw_sites()
     
+    term.clear()
     while true do
         print('----- Sites -----')
         for i, site in ipairs(site_list) do
