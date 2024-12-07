@@ -33,18 +33,22 @@ end
 
 
 local function draw_map()
-    print('----- Riverside Map -----')
-
-
-
-    print('Press Tab to return to the menu..')
+    while true do
+        print('----- Riverside Map -----')
+    
+    
+    
+        print('Press Tab to return to the menu..')
+    end
 end
 
 local function draw_inventory()
-    print('----- Inventory -----')
-
-
-    print('Press Tab to return to the menu..')
+    while true do
+        print('----- Inventory -----')
+    
+    
+        print('Press Tab to return to the menu..')
+    end
 end
 
 local function draw_train_parts()
@@ -64,12 +68,11 @@ local function draw_train_parts()
 
         event, side, channel, replyChannel, message, distance = os.pullEvent('modem_message')
 
-        print('----- Train Parts -----')
-        print(' ')
-        print('Message Recieved')
-        print('Message: ' .. message)
-        print(' ')
-        print('Press Tab to return to the menu..')
+        term.write('----- Train Parts -----')
+        term.setCursorPos(1,2)
+        term.write(tostring(message))
+        term.setCursorPos(1,3)
+        term.write('Press Tab to return to the menu..')
     end
 
  
@@ -77,7 +80,6 @@ end
 
 local function draw_sites()
     
-
     while true do
         print('----- Sites -----')
         for i, site in ipairs(site_list) do
