@@ -48,9 +48,29 @@ local function draw_inventory()
 end
 
 local function draw_train_parts()
-    print('----- Train Parts -----')
-    print(' ')
-    print('Press Tab to return to the menu..')
+
+    local modem = peripheral.find('modem')
+
+
+    modem.open(1)
+    while true do
+        local event, key = os.pullEvent('key')
+        if key == keys.tab then
+            draw_menu()
+            break
+        end
+
+        local event, side, channel, replyChannel, message, distance = os.pullEvent('modem_message')
+
+        print('----- Train Parts -----')
+        print(' ')
+        print('Message Recieved')
+        print('Message: ' .. message)
+        print(' ')
+        print('Press Tab to return to the menu..')
+    end
+
+ 
 end
 
 local function draw_sites()
