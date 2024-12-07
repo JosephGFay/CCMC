@@ -18,7 +18,13 @@ local function draw_menu()
     print('[DEBUG]: Cursor Position: ' .. term.getCursorPos())
 end
 
+local function draw_map()
+    print('----- Riverside Map -----')
+end
 
+local function draw_inventory()
+    print('----- Inventory -----')
+end
 
 function main()
     draw_menu()
@@ -30,9 +36,9 @@ function main()
 
         
         if key == keys[0] then
-            print('Map')
+            draw_map()
         else if key == keys[1] then
-            print('Inventory')
+            draw_inventory()
         end
         end
     end
