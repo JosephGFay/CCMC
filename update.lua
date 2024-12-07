@@ -1,9 +1,11 @@
 local urls = {
     main = 'https://raw.githubusercontent.com/JosephGFay/CCMC/refs/heads/main/main.lua',
+    meStorage = 'https://raw.githubusercontent.com/JosephGFay/CCMC/refs/heads/main/meStorage.lua',
 }
 
 local files = {
     main = 'main.lua',
+    meStorage = 'meStorage.lua',
 }
 
 local function delete_old_files()
