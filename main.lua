@@ -8,7 +8,7 @@ local menu_options = {
 }
 
 local site_list = {
-    'Train Parts',
+    '[0] - Train Parts',
 }
 
 local function draw_menu()
@@ -47,6 +47,35 @@ local function draw_inventory()
     print('Press Tab to return to the menu..')
 end
 
+local function draw_train_parts()
+    print('----- Train Parts -----')
+    print(' ')
+    print('Press Tab to return to the menu..')
+end
+
+local function draw_sites()
+    print('----- Sites -----')
+    for i, site in ipairs(site_list) do
+        print(site)
+    end
+
+    print('Press Tab to return to the menu..')
+
+    while true do
+        local event, key = os.pullEvent('key')
+        if key == keys.tab then
+            draw_menu()
+            break
+        end
+
+        if key == keys.zero then
+            draw_train_parts()
+        end
+    end
+
+end
+
+
 
 function main()
     draw_menu()
@@ -67,6 +96,10 @@ function main()
     
         if key == keys.one then
             draw_inventory()
+        end
+
+        if key == keys.two then
+            draw_sites()
         end
     
     end
