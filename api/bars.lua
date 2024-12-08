@@ -23,10 +23,3 @@ function drawBar(startX, startY, count,total)
     print(count)
 end
 
-local vault = {
-    totalStorage = bridge.getTotalItemStorage(),
-    usedStorage = bridge.getUsedItemStorage(),
-}
-
-print('Vault Used/Total: ' .. vault.usedStorage .. '/' .. vault.totalStorage)
-drawBar(2,2,vault.usedStorage,vault.totalStorage)
