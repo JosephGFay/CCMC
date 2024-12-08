@@ -5,7 +5,7 @@ local menu_options = {
     '[1] - Factory: Off',
 }
 
-local status
+local status = not redstone.getOutput('left')
 
 local function factoryOn()
     redstone.setOutput('left', false)
@@ -26,11 +26,11 @@ local function draw_menu()
     term.clear()
     term.setCursorPos(1, 1)
     print([[
-  ___   _   ___    ___ _   ___ _____ ___  _____   __
- / __| /_\ / __|__| __/_\ / __|_   _/ _ \| _ \ \ / /
- \__ \/ _ \ (_|___| _/ _ \ (__  | || (_) |   /\ V / 
- |___/_/ \_\___|  |_/_/ \_\___| |_| \___/|_|_\ |_|  
-                                                                                                                               
+  ___   _   ___    ___ _   ___ _____ ___  ___ 
+ / __| /_\ / __|__| __/_\ / __|_   _/ _ \/ __|
+ \__ \/ _ \ (_|___| _/ _ \ (__  | || (_) \__ \
+ |___/_/ \_\___|  |_/_/ \_\___| |_(_)___/|___/
+                                                                                                                                                                   
     ]])
     print(' ')
     print('Menu')
